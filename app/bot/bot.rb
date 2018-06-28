@@ -5,8 +5,20 @@ include Facebook::Messenger
 Facebook::Messenger::Subscriptions.subscribe(access_token: ENV["ACCESS_TOKEN"])
 
 Bot.on :message do |message|
+   $reply = Bonjour
+   if
+   case $reply
+   when bonjour, Bonjour
+       puts "Bonjour"
+   When comment aller vous
+       puts "Ca va, merci"
+ else
+           message.mark_seen
+           message.reply(text: "Avez vous une question précise?") 
+   end
+
     if 
-       message.text.include? ("Bonjour" or "bonjour")
+       message.text.include? "Bonjour"
        message.mark_seen
        message.reply(text:"Bonjour")
     elsif 
@@ -14,12 +26,12 @@ Bot.on :message do |message|
        message.mark_seen
        message.reply(text: "Oui et vous?")
     else 
-       message.text.include? ("article" or "Articles")
+       message.text.include? "article"
        message.mark_seen
        message.reply(text: "Quel type d'article?")
     end       
     if 
-       message.text.include? ("ticket" or "Ticket")
+       message.text.include? "ticket"
        message.mark_seen
        message.reply(text: "Type incident ou demande?")
     elsif
@@ -29,7 +41,7 @@ Bot.on :message do |message|
         attachment: {
         type: 'image',
         payload: {
-        url: 'http://sky.net/visual-aids-for-stupid-organisms/pig.jpg'
+        url: 'https://pbs.twimg.com/profile_images/875607716403609603/tS3Ye6Zo.jpg'
         }
     }
 )
