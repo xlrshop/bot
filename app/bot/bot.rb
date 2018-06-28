@@ -8,17 +8,17 @@ Bot.on :message do |message|
     if 
        message.text.include? ("Bonjour" or "bonjour")
        message.mark_seen
-       timeout 10
        message.reply(text:"Bonjour")
     elsif 
        message.text.include? "ca va"
        message.mark_seen
        message.reply(text: "Oui et vous?")
-    elsif 
+    else 
        message.text.include? ("article" or "Articles")
        message.mark_seen
        message.reply(text: "Quel type d'article?")
-    elsif 
+    end       
+    if 
        message.text.include? ("ticket" or "Ticket")
        message.mark_seen
        message.reply(text: "Type incident ou demande?")
